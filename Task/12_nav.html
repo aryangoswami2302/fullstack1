@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            display: inline-block;
+            background-color:rgb(7, 158, 158);
+            padding: 10px 20px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: "";
+            height: 5px;
+            width: 0%;
+            background-color: rgb(117, 9, 9);
+             position:absolute;
+            top:0%;
+            right:100%;
+            transition: .7s;
+        }
+
+        li:hover::before {
+            width: 100%;
+           }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>first</li>
+        <li>second</li>
+        <li>third</li>
+        <li>fourth</li>
+    </ul>
+</body>
+</html>

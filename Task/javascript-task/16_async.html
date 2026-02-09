@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+
+    <table border="5">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Phone</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+
+        const dom1 = async () => {
+            const res = await axios.get("https://696dcb36d7bacd2dd7148de4.mockapi.io/Userid")
+            console.log(res.data)
+        }
+        dom1()
+
+
+
+        let bookdata = {
+            name: "vikash",
+            email: "vvjgv@56455",
+            city: "patna"
+
+        }
+
+        const vsdata = async () => {
+            const res = await axios.get(
+                "https://696dcb36d7bacd2dd7148de4.mockapi.io/Userid"
+            );
+
+            showData(res.data);
+        };
+
+
+
+
+        const showData = (users) => {
+            let data = users.map((item) => {
+                return `
+      <tr>
+        <td>${item.name}</td>
+        <td>${item.email}</td>
+        <td>${item.city}</td>
+        <td>${item.phone}</td>
+      </tr>
+    `;
+            });
+
+            document.querySelector("tbody").innerHTML = data.join("");
+        };
+        vsdata();
+
+
+
+    </script>
+
+</body>
+
+</html>

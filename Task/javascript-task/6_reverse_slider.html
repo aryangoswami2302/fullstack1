@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Slider Stop</title>
+    <style>
+        .main{
+            height: 400px;
+            width: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main">
+    <img src="/image/1.jpeg" class="img" width="100%" height="100%" alt="">
+    <img src="/image/2.jpeg" class="img" width="100%" height="100%" alt="">
+    <img src="/image/3.jpeg" class="img" width="100%" height="100%" alt="">
+    <img src="/image/4.jpeg" class="img" width="100%" height="100%" alt="">
+</div>
+<button onclick="slider" id="slider">start</button>
+
+<script>
+    let img_tag = document.getElementsByClassName("img");
+    let index = img_tag.length - 1; // start from last image
+    let timer;
+
+    function slider(){
+        // hide all images
+        for(let i = 0; i < img_tag.length; i++){
+            img_tag[i].style.display = "none";
+        }
+
+        // show image
+        img_tag[index].style.display = "block";
+
+        // stop at first image
+        if(index === 0){
+            clearTimeout(timer);
+            return; // stop slider
+        }
+
+        index--;
+        timer = setTimeout(slider, 1000);
+    }
+
+    slider();
+</script>
+
+</body>
+</html>

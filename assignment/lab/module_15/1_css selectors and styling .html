@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/1_selectors.css">
+</head>
+<body>
+    <form action="">
+        <caption><h2>CONTACT FORM</h2></caption>
+        <label>Full Name</label>
+        <input type="text" placeholder="enter your full name" required pattern="[A-Za-z]{3,15}">
+        <br><br>
+        <label>Email</label>
+        <input type="email" placeholder="enter your email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}">
+        <br><br>
+        <label>Phone Number</label>
+          <select>
+            <option value="">+91</option>
+            <option>+1</option>
+            <option>+44</option>
+        </select>
+        <input type="tel" placeholder="enter your phone number" required pattern="{6789}[0-9]{9}" maxlength="10">
+      
+        <br><br>
+        <label>Subjects</label>
+        <select required>
+            <option hidden>subjects</option>
+            <option>maths</option>
+            <option>english</option>
+            <option>science</option>
+            <option>history</option>
+            <option>geography</option>
+            <option>computer science</option>
+            <option>physics</option>
+            <option>chemistry</option>
+            <option>biology</option>
+            <option>gujarati</option>
+            <option>hindi</option>
+            <option>sanskrit</option>
+            <option>commerce subjects</option>
+            <option>other</option>
+        </select>
+
+        <br><br>
+        <label>Message</label>
+        <textarea placeholder="enter your message" required rows="4"></textarea>
+<br><br>
+        <input id="submit" type="submit"></input>
+    </form>
+
+    
+</body>
+</html>

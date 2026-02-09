@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up Form</title>
+</head>
+
+<body>
+
+<h2 align="center">Sign Up</h2>
+
+<form>
+<table border="0" align="center" cellpadding="5">
+
+    <!-- First + Last Name -->
+    <tr>
+        <td>First, Last Name*:</td>
+        <td>
+            <input type="text" required maxlength="50" size="20">
+            <input type="text" required maxlength="50" size="20">
+        </td>
+    </tr>
+
+    <!-- Organization -->
+    <tr>
+        <td>Organization:</td>
+        <td>
+            <input type="text" maxlength="100" size="45">
+        </td>
+    </tr>
+
+    <!-- Email -->
+    <tr>
+        <td>Email address*:</td>
+        <td>
+            <input type="email" required size="45">
+        </td>
+    </tr>
+
+    <!-- Work Phone -->
+    <tr>
+        <td>Work Phone:</td>
+        <td>
+            <input type="text" pattern="[0-9]{10}" maxlength="10" size="45">
+        </td>
+    </tr>
+
+    <!-- Home Phone -->
+    <tr>
+        <td>Home Phone:</td>
+        <td>
+            <input type="text" pattern="[6-9][0-9]{9}" maxlength="10" size="45">
+        </td>
+    </tr>
+
+    <!-- Cell Phone -->
+    <tr>
+        <td>Cell Phone:</td>
+        <td>
+            <input type="text" pattern=" [6-9][0-9]{9}" maxlength="10" size="45">
+        </td>
+    </tr>
+
+    <!-- Fax -->
+    <tr>
+        <td>Fax:</td>
+        <td>
+            <input type="text" size="45">
+        </td>
+    </tr>
+
+    <!-- Address 1 -->
+    <tr>
+        <td>Address 1*:</td>
+        <td>
+            <input type="text" required size="60">
+        </td>
+    </tr>
+
+    <!-- Address 2 -->
+    <tr>
+        <td>Address 2:</td>
+        <td>
+            <input type="text" size="60">
+        </td>
+    </tr>
+
+    <!-- City -->
+    <tr>
+        <td>City*:</td>
+        <td>
+            <input type="text" required size="45">
+        </td>
+    </tr>
+
+    <!-- State -->
+    <tr>
+        <td>State/Province:</td>
+        <td>
+            <input type="text" size="45">
+        </td>
+    </tr>
+
+    <!-- Zip -->
+    <tr>
+        <td>Zip/Postal Code:</td>
+        <td>
+            <input type="text" pattern="[0-9]{6}" maxlength="6" size="20">
+        </td>
+    </tr>
+
+    <!-- Country -->
+    <tr>
+        <td>Country*:</td>
+        <td>
+            <input type="text" required size="45">
+        </td>
+    </tr>
+
+    
+    <!-- Submit Button -->
+    <tr>
+        <td></td>
+        <td>
+            <input type="submit" value="Submit">
+        </td>
+    </tr>
+
+</table>
+</form>
+
+</body>
+</html>

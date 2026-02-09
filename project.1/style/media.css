@@ -1,0 +1,219 @@
+/* =========================
+   TABLET (max-width: 992px)
+========================= */
+@media (max-width: 992px) {
+
+    .nav-ul {
+        display: none;
+    }
+
+    .icon.bar {
+        display: block;
+    }
+
+    .header-main {
+        height: auto;
+        padding: 40px 0;
+        background-size: cover;
+    }
+
+    .header-main .header-p {
+        width: 80%;
+        font-size: 22px;
+    }
+
+    #team {
+        height: auto;
+        background-size: cover;
+    }
+
+    .team-main .row {
+        flex-wrap: wrap;
+    }
+
+    .team-main .row .col {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+
+    .card .our-p {
+        width: 100%;
+        height: auto;
+        font-size: 20px;
+    }
+
+    .hike {
+        height: auto;
+    }
+
+    .hike .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hike .row .col {
+        width: 100%;
+    }
+
+    .hike-content .hike-h1 {
+        font-size: 55px;
+    }
+
+    .tour .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tour .row .col {
+        width: 100%;
+    }
+
+    .tour-content .tour-h1 {
+        font-size: 55px;
+    }
+}
+
+/* =========================
+   MOBILE (max-width: 576px)
+========================= */
+@media (max-width: 576px) {
+
+    .container {
+        width: 95%;
+    }
+
+    .nav .logo {
+        width: 120px;
+    }
+
+    .header-main .header-h1 {
+        font-size: 36px;
+    }
+
+    .header-main .header-p {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .header-main .header-btn {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+
+    #team .team-h1 {
+        font-size: 40px;
+    }
+
+    #team .team-p {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .team-main .row .col {
+        width: 100%;
+    }
+
+    .card .card-img {
+        width: 80%;
+    }
+
+    .hike-content .hike-h1 {
+        font-size: 40px;
+    }
+
+    .hike-content .hike-p {
+        font-size: 20px;
+    }
+
+    .hike-content .hike-btn {
+        font-size: 16px;
+        padding: 8px 25px;
+    }
+
+    .state-content .state-h2 {
+        font-size: 40px;
+    }
+
+    .state-content .state-p {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .tour-content .tour-h1 {
+        font-size: 40px;
+    }
+
+    .tour-content .tour-p {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .tour-content .tour-btn {
+        font-size: 18px;
+        padding: 8px 25px;
+    }
+}
+/* ===============================
+   MOBILE (max-width: 576px)
+================================ */
+@media (max-width: 576px) {
+
+    /* SUBSCRIBE */
+    .subscribe-section {
+        min-height: auto;
+        padding: 40px 10px;
+    }
+
+    .subscribe-section::before,
+    .subscribe-section::after {
+        width: 180px;
+        height: 180px;
+    }
+
+    .subscribe-box {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .subscribe-box h1 {
+        font-size: 26px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .subscribe-box p {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px 0;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .subscribe-form input,
+    .subscribe-form button {
+        width: 100%;
+    }
+
+    /* FOOTER */
+    #footer .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #footer .row .col-4,
+    #footer .row .col-6 {
+        width: 100%;
+    }
+
+    #footer .row .col-6 .col {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .foot-p {
+        width: 100%;
+    }
+}

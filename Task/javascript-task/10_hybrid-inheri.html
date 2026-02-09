@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class A  {
+            Data1(){
+                console.log("Hello Data1")
+            }
+        }
+         class B extends A{
+            Data2(){
+                console.log("Hello Data2")
+            }
+        }
+         class C extends B{
+            Data3(){
+                console.log("Hello Data3")
+            }
+        }
+        class D extends C{
+            Data4(){
+                console.log("Hello Data 4")
+            }
+        }
+        class E extends C{
+            Data5(){
+                console.log("Hello Data 5")
+            }
+        }
+        const obj = new D();
+        const obj2 = new E();
+        obj.Data1();
+        obj.Data2();
+        obj.Data3();
+        obj.Data4();
+        obj2.Data5();  
+       
+    </script>
+</body>
+</html>

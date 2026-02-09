@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- Top Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-2">
+    <div class="container-fluid px-4">
+
+      <!-- Logo -->
+      <a class="navbar-brand fw-bold text-danger" href="#">
+        book<span class="text-dark">my</span>show
+      </a>
+
+      <!-- Search Bar -->
+      <form class="d-none d-lg-flex mx-4 flex-grow-1">
+        <input class="form-control" type="search"
+          placeholder="Search for Movies, Events, Plays, Sports and Activities" />
+      </form>
+
+      <!-- Right Section -->
+      <div class="d-flex align-items-center gap-3">
+        <div class="dropdown">
+          <button class="btn btn-link text-dark dropdown-toggle text-decoration-none" data-bs-toggle="dropdown">
+            Ahmedabad
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Mumbai</a></li>
+            <li><a class="dropdown-item" href="#">Delhi</a></li>
+            <li><a class="dropdown-item" href="#">kolkata</a></li>
+            <li><a class="dropdown-item" href="#">Bengaluru</a></li>
+          </ul>
+        </div>
+
+        <button class="btn btn-danger btn-sm px-3">Sign in</button>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bottom Menu -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-1">
+    <div class="container-fluid px-4">
+      <div class="collapse navbar-collapse show" id="menu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#">Movies</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Stream</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Plays</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sports</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Activities</a></li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">ListYourShow</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Corporates</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Offers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Gift Cards</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--slider start-->
+  <div class="container">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="1000">
+          <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1765603789072_mumbaiwebbanner.jpg"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1766146889792_nybankwebbanner.jpg"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1765966081825_webbannerchris.jpg"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1763467944657_popdes.jpg"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1763467944657_popdes.jpg"
+            class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+
+  <div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 class="fw-bold">Recommended Movies</h4>
+      <a href="#" class="text-danger text-decoration-none">See All ›</a>
+    </div>
+
+    <div id="movieCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="container ">
+          <div class="carousel-item active">
+            <div class="row g-3 justify-content-center">
+
+              <!-- Movie Card -->
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="card border-0">
+                  <img
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4zLzEwICA0MTdLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00452447-pjrjvlcdvl-portrait.jpg"
+                    class="card-img-top rounded" alt="">
+                  <div class="card-body p-2">
+                    <span class="text-danger fw-bold">★ 9.3/10</span>
+                    <h6 class="mt-1 mb-0">Dhurandhar</h6>
+                    <small class="text-muted">Action / Thriller</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="card border-0">
+                  <img
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny8xMCAgNC45SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00426670-vlgltxbjkz-portrait.jpg"
+                    class="card-img-top rounded" alt="">
+                  <div class="card-body p-2">
+                    <span class="text-danger fw-bold">★ 7/10</span>
+                    <h6 class="mt-1 mb-0">Tu Meri Main...</h6>
+                    <small class="text-muted">Romantic / Comedy</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="card border-0">
+                  <img
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC8xMCAgODYuNEsrIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00407893-qhgvxhcjne-portrait.jpg"
+                    class="card-img-top rounded" alt="">
+                  <div class="card-body p-2">
+                    <span class="text-danger fw-bold">★ 8/10</span>
+                    <h6 class="mt-1 mb-0">Avatar</h6>
+                    <small class="text-muted">Sci-Fi</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="card border-0">
+                  <img
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC4zLzEwICAzMDArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00470174-lhgmlleehf-portrait.jpg"
+                    class="card-img-top rounded" alt="">
+                  <div class="card-body p-2">
+                    <span class="text-danger fw-bold">★ 8.1/10</span>
+                    <h6 class="mt-1 mb-0">Vande Bharat</h6>
+                    <small class="text-muted">Comedy / Drama</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="card border-0">
+                  <img
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS40LzEwICAzOS4ySysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00459408-wsdppvrjuu-portrait.jpg"
+                    class="card-img-top rounded" alt="">
+                  <div class="card-body p-2">
+                    <span class="text-danger fw-bold">★ 9.4/10</span>
+                    <h6 class="mt-1 mb-0">Laalo</h6>
+                    <small class="text-muted">Drama</small>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-next" type="button" data-bs-target="#movieCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- slider 2-->
+
+          <div class="carousel-item active1">
+            <div class="row g-3 justify-content-center">
+
+              <!-- Movie Card -->
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="card border-0">
+                  <img
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NjIuMksrIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00388415-wuexytzqpr-portrait.jpg"
+                    class="card-img-top rounded" alt="">
+                  <div class="card-body p-2">
+                    <span class="text-danger fw-bold">★ 9.3/10</span>
+                    <h6 class="mt-1 mb-0">Ikkis</h6>
+                    <small class="text-muted">Action / Thriller</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="card border-0">
+                  <img
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny4yLzEwICAzLjJLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00448751-ejlzmudlvg-portrait.jpg"
+                    class="card-img-top rounded" alt="">
+                  <div class="card-body p-2">
+                    <span class="text-danger fw-bold">★ 7/10</span>
+                    <h6 class="mt-1 mb-0">Anaconda</h6>
+                    <small class="text-muted">Romantic / Comedy</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="card border-0">
+                  <img
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS8xMCAgMi44SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00363514-aegaglnfer-portrait.jpg"
+                    class="card-img-top rounded" alt="">
+                  <div class="card-body p-2">
+                    <span class="text-danger fw-bold">★ 9.3/10</span>
+                    <h6 class="mt-1 mb-0">Vrusshabha</h6>
+                    <small class="text-muted">Action / Thriller</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="card border-0">
+                  <img
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4xLzEwICAxOUsrIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00441877-ckrltjszzf-portrait.jpg"
+                    class="card-img-top rounded" alt="">
+                  <div class="card-body p-2">
+                    <span class="text-danger fw-bold">★ 9.3/10</span>
+                    <h6 class="mt-1 mb-0">Zootopia 2</h6>
+                    <small class="text-muted">Action / Thriller</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-2">
+                <div class="card border-0">
+                  <img
+                    src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4yLzEwICAzMy40SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00473343-qwzfbvtcsu-portrait.jpg"
+                    class="card-img-top rounded" alt="">
+                  <div class="card-body p-2">
+                    <span class="text-danger fw-bold">★ 9.3/10</span>
+                    <h6 class="mt-1 mb-0">Srvam maya</h6>
+                    <small class="text-muted">Action / Thriller</small>
+                  </div>
+                </div>
+              </div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#movieCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<div class="container">
+        <img
+          src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/stream-leadin-web-collection-202210241242.png"
+          class="img-fluid" alt="...">
+      </div>
+
+      <div class="container">
+        <button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Sign in</button>
+
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title text-success" id="offcanvasScrollingLabel">Hey!</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+   <div class="btn btn-group">
+     <button type="button" class="btn btn-danger">login</button>
+    <button type="button" class="btn btn-dark">Ragister</button>
+   </div>
+   <p>Try scrolling the rest of the page to see this option in action.</p>
+  </div>
+</div>
+      </div>
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+form{
+    background-color: rgb(145, 146, 146);
+    padding: 20px;
+    margin: 15px;
+}
+
+
+
+#submit:hover{
+    background-color: rgb(255, 142, 55);
+    color: white;
+}
+

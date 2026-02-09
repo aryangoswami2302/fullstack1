@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table border="5">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>city</th>
+                <th>company</th>
+                <th>website</th>
+                <th>street</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        fetch("https://jsonplaceholder.typicode.com/users", {
+            method: "GET"
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((res) => {
+                console.log(res);
+
+                let htmldata = res.map((data, index) => {
+                    // console.log(data)
+                    return (
+                        `
+                        <tr>
+                            <td>${data.id}</td>
+                            <td>${data.name}</td>
+                            <td>${data.email}</td>
+                             <td>${data.address.city}</td>
+                             <td>${data.address.street}</td>
+                              <td>${data.company.name}</td>
+                              <td>${data.website}</td>
+                        </tr>
+                    `
+                    )
+                })
+                document.querySelector("tbody").innerHTML = htmldata.join("")
+            })
+    </script>
+</body>
+
+</html>

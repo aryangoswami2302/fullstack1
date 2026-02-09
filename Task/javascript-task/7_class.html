@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Class : collection of data memeber(varibale) and member function(function) .class 
+    class : it's blue print of object 
+    
+    syntax : 
+    class Class-name{
+        member function(){
+            data memeber
+        }
+    }
+
+    let user = new Class-name -->
+
+
+ <script>
+class Bank {
+
+  details(pin, balance) {
+    let bankName = "HDFC";
+    let bankIFSC = "HDFC112H";
+
+    console.log("Bank Name :", bankName);
+    console.log("Bank IFSC :", bankIFSC);
+    console.log("Pin :", pin);
+    console.log("Balance :", balance);
+    console.log("Name :Aryan Goswami",name);
+    console.log("-----------------------");
+  }
+
+  withdraw(balance, amount) {
+    if (amount <= balance) {
+      balance = balance - amount;
+      console.log("Withdraw Amount :", amount);
+      console.log("Remaining Balance :", balance);
+    } else {
+      console.log("Insufficient Balance");
+    }
+  }
+}
+
+// object
+let user = new Bank();
+
+// calling
+user.details(123, 1000);
+user.withdraw(1000, 400);
+</script>
+
+
+</body>
+</html>

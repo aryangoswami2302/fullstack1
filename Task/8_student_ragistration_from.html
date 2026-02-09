@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form Using Table</title>
+</head>
+
+<body>
+
+<h2  align="center">Student Registration Form Using Table</h2>
+
+<form>
+   
+ <fieldset>
+<table align="center" >
+
+    <!-- First Name -->
+    <tr>
+        <td>First Name</td>
+        <td>
+            <input type="text" maxlength="50" required>
+            (Max 50 Characters Allowed)
+        </td>
+    </tr>
+
+    <!-- Last Name -->
+    <tr>
+        <td>Last Name</td>
+        <td>
+            <input type="text" maxlength="50" required>
+            (Max 50 Characters Allowed)
+        </td>
+    </tr>
+
+    <!-- Email -->
+    <tr>
+        <td>Email ID</td>
+        <td><input type="email" required></td>
+    </tr>
+
+    <!-- Mobile -->
+    <tr>
+        <td>Mobile Number</td>
+        <td>
+            <input type="text" maxlength="10" pattern="[0-9]{10}" required>
+            (10 Digits Allowed)
+        </td>
+    </tr>
+
+    <!-- Gender -->
+    <tr>
+        <td>Gender</td>
+        <td>
+            <input type="radio" name="gender" required> Male
+            <input type="radio" name="gender" required> Female
+        </td>
+    </tr>
+
+    <!-- DOB -->
+    <tr>
+        <td>Date of Birth (DOB)</td>
+        <td>
+            <select required>
+                <option value="">Day</option>
+                <script>
+                    for(let i=1; i<=31; i++){
+                        document.write(<option>${i}</option>);
+                    }
+                </script>
+            </select>
+
+            <select required>
+                <option value="">Month</option>
+                <option>Jan</option><option>Feb</option><option>Mar</option>
+                <option>Apr</option><option>May</option><option>Jun</option>
+                <option>Jul</option><option>Aug</option><option>Sep</option>
+                <option>Oct</option><option>Nov</option><option>Dec</option>
+            </select>
+
+            <select required>
+                <option value="">Year</option>
+                <script>
+                    for(let y=1980; y<=2025; y++){
+                        document.write(<option>${y}</option>);
+                    }
+                </script>
+            </select>
+        </td>
+    </tr>
+
+    <!-- Address -->
+    <tr>
+        <td>Address</td>
+        <td><textarea required></textarea></td>
+    </tr>
+
+    <!-- City -->
+    <tr>
+        <td>City</td>
+        <td>
+            <input type="text" maxlength="50" required>
+            (Max 50 Characters Allowed)
+        </td>
+    </tr>
+
+    <!-- Pin Code -->
+    <tr>
+        <td>Pin Code</td>
+        <td>
+            <input type="text" maxlength="6" pattern="[0-9]{6}" required>
+            (Max 6 Numbers Allowed)
+        </td>
+    </tr>
+
+    <!-- State -->
+    <tr>
+        <td>State</td>
+        <td>
+            <input type="text" maxlength="50" required>
+            (Max 50 Characters Allowed)
+        </td>
+    </tr>
+
+    <!-- Country -->
+    <tr>
+        <td>Country</td>
+        <td><input type="text" value="India" readonly></td>
+    </tr>
+
+    <!-- Hobbies -->
+    <tr>
+        <td>Hobbies</td>
+        <td>
+            <input type="checkbox"> Drawing
+            <input type="checkbox"> Singing
+            <input type="checkbox"> Dancing
+            <input type="checkbox"> Sketching
+            <br><br>
+
+            <input type="checkbox"> Others
+            <input type="text" maxlength="50" placeholder="Max 50 Characters Allowed">
+        </td>
+    </tr>
+
+    <!-- Qualification -->
+    <tr>
+        <td>Qualification</td>
+        <td>
+            <input type="checkbox"> High School(10th) <br>
+            <input type="checkbox"> Higher School(12th) <br>
+            <input type="checkbox"> Graduation(Bachelors) <br>
+            <input type="checkbox"> Post Graduation(Masters) <br>
+            <input type="checkbox"> PhD
+        </td>
+    </tr>
+
+    <!-- Courses Applied -->
+    <tr>
+        <td>Courses Applied For</td>
+        <td>
+            <input type="radio" name="course" required> BCA (Bachelor of Computer Applications) <br>
+            <input type="radio" name="course" required> B.Com (Bachelor of Commerce) <br>
+            <input type="radio" name="course" required> B.Sc (Bachelor of Science) <br>
+            <input type="radio" name="course" required> BA (Bachelor of Arts) <br>
+            <input type="radio" name="course" required> MCA (Master of Computer Applications) <br>
+            <input type="radio" name="course" required> M.Com (Master of Commerce) <br>
+            <input type="radio" name="course" required> M.Sc (Master of Science) <br>
+            <input type="radio" name="course" required> MA (Master of Arts)
+        </td>
+    </tr>
+
+    <!-- Buttons -->
+    <tr>
+        <td colspan="2" align="center">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </td>
+    </tr>
+
+</table>
+
+</form>
+
+</body>
+</html>
+    
+</body>
+</html>

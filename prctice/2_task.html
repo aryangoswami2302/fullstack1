@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hero Banner Example</title>
+<style>
+  * { box-sizing: border-box; margin:auto; padding: 0; }
+   body {
+        background: #d38d8d;
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+ 
+  }
+   .hero {
+    width: 100%;
+    max-width: 900px;       
+    aspect-ratio: 16/7;     
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #1e1c1c;
+      }
+   .hero .bg {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+      }
+    .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.14));
+    pointer-events: none;
+  }
+    .frame {
+    position: absolute;
+        left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 82%;
+    max-width: 760px;
+    height: 58%;           
+    border: 6px solid rgba(255,255,255,0.95);
+    box-shadow: 0 0 0 6px rgba(0,0,0,0.03) inset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;  
+  }
+    .text-block {
+    position:absolute;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    pointer-events: none;
+  }
+
+  .headline {
+    letter-spacing: 6px;
+    font-weight: 600;
+    font-size: clamp(20px, 4vw, 44px);
+    margin-bottom: 8px;
+    color: rgba(93, 22, 22, 0.95);
+  }
+
+  .headline .accent {
+    color: #650306; 
+    letter-spacing: 2px;
+  }
+
+  .subhead {
+    font-size: clamp(12px, 1.6vw, 18px);
+    letter-spacing: 4px;
+    color: rgba(245, 38, 7, 0.95);
+    opacity: 0.95;
+  }
+    .line {
+    width: 60px;
+    height: 2px;
+    background: rgba(208, 33, 33, 0.85);
+    margin: 8px auto 10px;
+    border-radius: 2px;
+  }
+
+    .hero:hover .bg {
+    transform: scale(1.03);
+    transition: transform 600ms cubic-bezier(.2,.8,.2,1);
+  }
+    
+</style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="bg" style="background-image: url(https://images.pexels.com/photos/33729651/pexels-photo-33729651.jpeg?_gl=1*1pmkszn*_ga*NDc1NzQxOTA3LjE3NjM4MzczNTU.*_ga_8JE65Q40S6*czE3NjUyNzkwNTgkbzUkZzEkdDE3NjUyNzkwNjkkajQ5JGwwJGgw);"></div>
+
+  <div class="frame"></div>
+
+  <div class="text-block" aria-hidden="true">
+    <div class="headline"><span class="accent">F</span>ALL AHEAD</div>
+    <div class="line"></div>
+    <div class="subhead">N e w &nbsp; A r r i v a l s</div>
+  </div>
+</div>
+
+</body>
+</html>

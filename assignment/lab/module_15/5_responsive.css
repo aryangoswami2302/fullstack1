@@ -1,0 +1,89 @@
+
+    /* Base Reset and Layout */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      background-color: #333;
+      color: white;
+      padding: 15px 20px;
+      align-items: center;
+    }
+
+    .navbar ul{
+        list-style: none;
+    }
+
+    .navbar ul li{
+        display: inline-block;
+        padding: 10px 20px;
+    }
+
+    .navbar ul li a{
+        text-decoration: none;
+        color: aliceblue;
+    }
+
+    .navbar h1 {
+      font-size: 24px;
+    }
+
+    /* Content Section */
+    .content {
+      display: flex;
+      padding: 10px 0;
+    }
+
+    .column {
+      width: 50%;
+      background-color: #61c5e1;
+      padding: 40px;
+      border-radius: 10px;
+      margin: 20px 0px;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      margin: 20px 0;
+    }
+
+
+     /* css end  */
+
+
+    /* Responsive Styles */
+
+
+    @media (max-width: 768px) {
+
+        .navbar ul {
+            display: none;
+        }
+      .content {
+        flex-direction: column;
+      }
+
+      .column {
+        width: 100%;
+        font-size: 16px;
+      }
+
+
+
+    }

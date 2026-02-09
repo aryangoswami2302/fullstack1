@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fetchData()">Show data</button>
+    
+    <script>
+   function fetchData() {
+    fetch('data1.json')
+        .then(response => {
+            return response.json(); 
+        })
+        .then(data1 => {
+
+            // User
+            console.log("Users Data:");
+            const userContainer = document.getElementById('users-container');
+            
+            data1.users.forEach(user => {
+                console.log(user.name);
+                 document.writeln(`<h2>${user.id}. ${user.name} - ${user.course}</h2>`);
+            });
+            document.writeln("------------------------------------------------")
+        //   Admin
+            console.log("Admin Data:");
+            const adminContainer = document.getElementById('admin-container');
+            
+            data1.admin.forEach(adm => {
+                console.log(adm.name);
+               document.writeln(`<h2>${adm.id}. ${adm.name} (${adm.email})</h2>`);
+            });
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+}
+
+fetchData();
+    </script>
+</body>
+</html>

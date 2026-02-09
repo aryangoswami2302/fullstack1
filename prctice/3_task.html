@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main1 {
+            height: 400px;
+            width: 400px;
+            border: 2px solid;
+            margin: 200px auto;
+            background-image: url("https://images.pexels.com/photos/30091777/pexels-photo-30091777.jpeg?_gl=1*1wcipin*_ga*NDc1NzQxOTA3LjE3NjM4MzczNTU.*_ga_8JE65Q40S6*czE3NjUzMzQwMzckbzgkZzEkdDE3NjUzMzQwNzYkajIxJGwwJGgw");
+            background-size: cover;
+            background-position: center
+        }
+
+        .main2 {
+            height: 200px;
+            width: 200px;
+            border: 2px solid;
+            margin:400px auto;
+            margin-right: 400px;
+            transform: translate(100%, -100%);
+            transition: .5s;
+        }
+
+        .main:hover .main2 {
+            transform:scale(0.5s);
+        }
+
+        .main3 {
+            height: 200px;
+            width: 200px;
+            background-color: rgba(92, 92, 255, 0.5);
+            transform: translate(-100%, 0%);
+            transition: .5s;
+        }
+    </style>
+
+<body>
+    <div class="main1">
+        <div class="main2"></div>
+        <div class="mzin3"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Interaction Form</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.js">
+  <link rel="stylesheet" href="SubmissionViewer.js">
+  <link rel="stylesheet" href="CustomerFormHandler.js">
+  <link rel="stylesheet" href="utils.js">
+  <link rel="stylesheet" href="view.html">
+</head>
+<body>
+  <form id="customerForm" class="form-container">
+    <h2>Customer Complaint Form</h2>
+
+    <input type="text" name="fullName" placeholder="Full Name" />
+    <input type="number" name="phone" placeholder="Phone Number" />
+    <input type="email" name="email" placeholder="Email Address" />
+
+    <select name="vehicle">
+      <option value="">Select Vehicle</option>
+      <option value="Car">Car</option>
+      <option value="Bike">Bike</option>
+      <option value="Truck">Truck</option>
+    </select>
+
+    <textarea name="complaint" placeholder="Describe your issue"></textarea>
+
+    <button type="submit">Submit</button>
+    <div id="messageBox"></div>
+  </form>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

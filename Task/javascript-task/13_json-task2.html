@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       
+        <table border="5">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>products</th>
+                <th>total</th>
+                <th>discount total</th>
+                <th>userId</th>
+            </tr>
+        </thead>
+        <tbody>
+                
+        </tbody>
+    </table>
+
+    <script>
+        fetch("https://fakestoreapi.com/products", {
+        method:"GET",
+        })
+        .then((res)=>{
+            return res.json()
+        })
+        .then((data)=>{
+            console.log(data)
+
+            let mapdata=data.map((data,index)=>{
+                return( `<tr key={index}>
+                <td>${data.id}</td>
+                <td>${data.title}</td>
+                <td>${data.price}</td>
+                <td>${data.category}</td>
+                <td>${data.rating.rate}</td>
+                </tr>`)
+            })
+            document.querySelector("tbody").innerHTML=mapdata.join("")
+        })
+    
+
+    </script>
+       
+ </html>

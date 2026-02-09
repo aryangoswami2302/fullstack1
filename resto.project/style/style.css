@@ -1,0 +1,472 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* utilies */
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.main {
+    background-color: #ede2b5;
+    padding: 15px 0px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .logo {
+    width: 150px;
+}
+
+.nav-ul .nav-li {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.nav-li .nav-a {
+    font-size: 25px;
+    color: #716c53;
+    font-weight: 600;
+    font-family: "Poppins";
+    text-decoration: none;
+}
+
+.icon i {
+    font-size: 25px;
+    color: #716c53;
+}
+
+.icon .bar {
+    display: none;
+}
+
+/*header start*/
+
+.header-main {
+    padding: 30px 0px;
+    background: url("/image/header.png");
+    background-size: 100% 100%;
+}
+
+.header-main .header-h1 {
+    width: 50%;
+
+    font-size: clamp(20px, 8.6vw, 91px);
+    text-transform: uppercase;
+    color: #716c53;
+    font-weight: 900;
+    font-family: "Montserrat";
+}
+
+.header-main .header-p {
+    width: 55%;
+    font-size: 32px;
+    font-size: clamp(16px, 3.2vw, 32px);
+    color: #716c53;
+    font-weight: 400;
+    font-family: "Nunito";
+    margin: 30px 0px;
+}
+
+.header-main .header-btn {
+    font-size: clamp(16px, 3.2vw, 25px);
+    color: #ffffff;
+    font-weight: 100;
+    font-family: "Montserrat";
+    text-align: center;
+    border-radius: 4px;
+    background-color: #716c53;
+    border: none;
+    padding: 10px 30px;
+}
+
+/*header end*/
+
+
+/*team start*/
+
+#team {
+    background: url("/image/team.png");
+    background-size: 100% 100%;
+    padding: 30px 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+#team::after {
+    content: url("/image/Design_1.png");
+    position: absolute;
+    top: 0;
+}
+
+#team .team-h1 {
+    font-size: clamp(20px, 6.7vw, 64px);
+    text-transform: uppercase;
+    color: #716c53;
+    font-weight: 900;
+    font-family: "Montserrat";
+    text-align: center;
+}
+
+#team .team-p {
+    font-size: clamp(16px, 3.2vw, 25px);
+    color: #716c53;
+    font-weight: 100;
+    font-family: "Montserrat";
+    text-align: center;
+    width: 50%;
+    margin: 20px auto;
+}
+
+.team-main .row {
+    display: flex;
+}
+
+.team-main .row .col {
+    width: 33.33%;
+}
+
+.card {
+    text-align: center;
+    font-weight: 600;
+    color: #716c53;
+    padding: 30px 20px;
+}
+
+.card .card-img {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.card .team-h4 {
+    font-size: clamp(16px, 3.2vw, 33px);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: "Montserrat";
+    margin: 10px 0px;
+}
+
+.card .our-p {
+    font-size: clamp(16px, 3.2vw, 25px);
+    font-family: "Nunito";
+    margin: 10px 0px;
+}
+
+/*team end*/
+
+
+/* best */
+#best {
+    background: url("/image/Best.png");
+    background-size: 100% 100%;
+    padding: 30px 0px;
+}
+
+.best .row {
+    display: flex;
+    align-items: center;
+}
+
+.best .row .col {
+    width: 50%;
+}
+
+.best {
+    padding: 20px 0px;
+}
+
+.best-img {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.best-content .best-h1 {
+    font-size: clamp(20px, 7.2vw, 75px);
+    text-transform: uppercase;
+    color: #716c53;
+    font-weight: 900;
+    font-family: "Montserrat";
+}
+
+.best-content .best-p {
+    font-size: clamp(16px, 3.2vw, 30px);
+    color: #716c53;
+    font-weight: 400;
+    font-family: "Nunito";
+    margin: 20px 0;
+}
+
+.best-content .best-btn {
+    font-size: clamp(16px, 3.2vw, 25px);
+    color: #ffffff;
+    font-weight: 100;
+    font-family: "Montserrat";
+    text-align: center;
+    border-radius: 4px;
+    background-color: #716c53;
+    border: none;
+    padding: 10px 40px;
+}
+
+
+/*beef*/
+#beef {
+    background: url("/image/beef-img.png");
+    background-size: 100% 100%;
+    padding: 30px 0px;
+}
+
+.beef .row {
+    display: flex;
+    align-items: center;
+}
+
+.beef .row .col {
+    width: 50%;
+}
+
+.beef {
+    padding: 20px 0px;
+}
+
+.beef-img {
+    width: 70%;
+    margin: 50px left;
+
+}
+
+.beef-content .best-h1 {
+    font-size: clamp(20px, 7.2vw, 75px);
+    text-transform: uppercase;
+    color: #716c53;
+    font-weight: 900;
+    font-family: "Montserrat";
+}
+
+.beef-content .beef-p {
+    font-size: clamp(20px, 7.2vw, 75px);
+    font-size: 30px;
+    color: #716c53;
+    font-family: "Montserrat";
+    margin: 20px 0;
+}
+
+.beef-content .beef-btn {
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: "Montserrat";
+    background-color: #716c53;
+    border-radius: 4px;
+    border: none;
+    text-align: center;
+    padding: 10px 40px;
+}
+
+
+/*statistics*/
+
+#class1 {
+    background-image: url("/image/back-img1.png");
+    background-size: 100% 100%;
+    padding: 30px 0px;
+}
+
+.container .ch1 {
+    font-size: 62px;
+    text-transform: uppercase;
+    color: #716c53;
+    font-weight: bold;
+    font-family: "Montserrat";
+    text-align: center;
+}
+
+.container .cp {
+    text-align: center;
+    width: 50%;
+    font-size: clamp(15px, 3.2vw, 25px);
+    color: #716c53;
+    font-weight: 400;
+    font-family: "Nunito";
+    margin: 0px auto;
+    padding: 30px 20px;
+
+}
+
+
+.container .row {
+    display: flex;
+    justify-content: center;
+}
+
+
+.container .row .col {
+    /* width: 33.33%; */
+
+}
+
+.container .circle1 {
+    /* height: 50px;
+    width: 50%;
+    border: 2px dashed;
+    border-radius: 50%; */
+    content: url("/image/Card.png");
+}
+
+.container .circle2 {
+    content: url("/image/Card\ \(2\).png");
+
+}
+
+.container .circle3 {
+    content: url("/image/Card\ \(1\).png");
+}
+
+/* manu package start*/
+
+#manu {
+    background: url("/image/background-manu.png");
+    background-size: 100% 100%;
+    padding: 30px 0px
+}
+
+.container .Mcard {
+    border: 2px solid;
+    text-align: center;
+    font-weight: 600;
+    color: #716c53;
+    padding: 30px 20px;
+    border-radius: 8px;
+    background-color: #f5f1e4;
+}
+
+#manu .mh1 {
+    font-size: clamp(20px, 6.7vw, 64px);
+    text-transform: uppercase;
+    color: #716c53;
+    font-weight: 900;
+    font-family: "Montserrat";
+    text-align: center;
+}
+
+.mp .row {
+    display: flex;
+}
+
+.mp .row .col {
+    width: 33.33;
+}
+
+.Mcard {
+    text-align: center;
+    font-weight: 600;
+    color: #716c53;
+    padding: 30px 20px;
+    margin: 0 10px;
+}
+
+.Mcard .Mcard-img {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.Mcard .tem-h4 {
+    font-size: clamp(16px, 3.2vw, 33px);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: "Montserrat";
+    margin: 10px 0px;
+}
+
+.Mcard .Your-p {
+    font-size: 20px;
+    color: #716c53;
+    font-weight: 100;
+    font-family: "Montserrat";
+    text-align: center;
+    padding: 20px 20px;
+}
+
+
+.card1-btn {
+    border-radius: 4px;
+    background-color: #716c53;
+    border: none;
+    font-size: 23px;
+    color: #ffffff;
+    font-weight: 100;
+    font-family: "Montserrat";
+    text-align: center;
+}
+
+
+
+/* manu package end*/
+
+/* footer */
+#footer {
+    padding: 30px 0px;
+    background-color: #222222;
+}
+
+#footer .row {
+    display: flex;
+    padding: 20px 0px;
+}
+
+#footer .row .col-4 {
+    width: 40%;
+
+}
+
+#footer .row .col-6 {
+    width: 60%;
+
+}
+
+#footer .row .col-6 .col {
+    width: 33.33%;
+}
+
+.foot-content {
+    color: #ffffff;
+    font-family: "Nunito";
+}
+
+.foot-content .foot-h3 {
+    font-size: clamp(16px, 3.2vw, 32px);
+    font-weight: 700;
+}
+
+.foot-content .foot-ul {
+    list-style: none;
+    margin: 20px 0px;
+}
+
+.foot-ul .foot-li {
+    margin: 10px 0px;
+}
+
+.foot-ul .foot-li .foot-a {
+    font-size: clamp(16px, 3.2vw, 25px);
+    font-weight: 400;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.foot-p {
+
+    font-size: clamp(16px, 3.2vw, 25px);
+    color: #ffffff;
+    margin: 20px 0px;
+    width: 90%;
+    font-weight: 400;
+    font-family: "Nunito";
+}
