@@ -1,0 +1,130 @@
+{
+    "admin":[
+        {
+            "id":1,
+            "name":"admin",
+            "email":"admin@gmail.com",
+            "password":"1234"
+        },
+        {
+            "id":2,
+            "name":"subadmin",
+            "email":"subadmin@gmail.com",
+            "password":"123456"
+        }
+    ],
+    "users":[
+        {
+            "id":1,
+            "name":"user",
+            "email":"user@gmail.com",
+            "password":"1234",
+            "status":"unblock"
+        },
+        {
+            "id":2,
+            "name":"karan",
+            "email":"karan@gmail.com",
+            "password":"123456",
+            "status":"unblock"
+        },
+        {
+            "id":3,
+            "name":"manthan",
+            "email":"manthan@gmail.com",
+            "password":"123456",
+            "status":"block"
+        }
+    ],
+    "rooms":[
+        {
+            "id":1,
+            "name":"Executive Suite",
+            "price":"50",
+            "bed":"2",
+            "bath":"1",
+            "desc":"helloo  rooms availd for data",
+            "img":"https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?_gl=1*1wr5nxm*_ga*OTgxMzcxNzg3LjE3NTE4ODEzNTk.*_ga_8JE65Q40S6*czE3NzE5MTE4NjYkbzYzJGcxJHQxNzcxOTExODcwJGo1NiRsMCRoMA.."
+        },
+          {
+            "id":2,
+            "name":"Super Deluxe",
+            "price":"80",
+            "bed":"3",
+            "bath":"2",
+            "desc":"helloo  rooms availd  asdsa dsa sa dfor data",
+            "img":"https://images.pexels.com/photos/3201763/pexels-photo-3201763.jpeg?_gl=1*1p5y1r9*_ga*OTgxMzcxNzg3LjE3NTE4ODEzNTk.*_ga_8JE65Q40S6*czE3NzE5MTE4NjYkbzYzJGcxJHQxNzcxOTExOTI2JGo2MCRsMCRoMA.."
+        },
+         {
+            "id":3,
+            "name":"Junior Suite",
+            "price":"90",
+            "bed":"3",
+            "bath":"2",
+            "desc":"helloo  rooms dsfdsf sdfa sa dfor data",
+            "img":"https://images.pexels.com/photos/33125906/pexels-photo-33125906.jpeg?_gl=1*gybo6z*_ga*OTgxMzcxNzg3LjE3NTE4ODEzNTk.*_ga_8JE65Q40S6*czE3NzE5MTE4NjYkbzYzJGcxJHQxNzcxOTExOTI2JGo2MCRsMCRoMA.."
+        }
+    ],
+    "services":[
+        {
+            "id":1,
+            "name":"Room Service",
+            "desc":"We provide 24/7 room service to ensure your comfort and convenience during your stay. Our dedicated team is ready to assist you with any requests, whether it's ordering food, arranging transportation, or providing extra amenities. Enjoy the luxury of having everything you need delivered right to your doorstep."
+        },
+        {
+            "id":2,
+            "name":"Spa and Wellness",
+            "desc":"Indulge in our spa and wellness services designed to rejuvenate your mind, body, and soul. From relaxing massages to invigorating facials, our skilled therapists will help you unwind and refresh. Experience tranquility and bliss in our serene spa environment, where your well-being is our top priority."
+        },
+        {
+            "id":3,
+            "name":"Concierge Services",
+            "desc":"Our concierge team is here to make your stay unforgettable. Whether you need assistance with restaurant reservations, local attractions, or transportation arrangements, we are at your service. Let us take care of the details so you can focus on enjoying your time with us."
+        },
+
+        {
+            "id": 4,
+            "name": "Fitness Center",
+            "desc": "Stay active and maintain your fitness routine in our state-of-the-art fitness center. Equipped with modern exercise machines and free weights, our fitness center offers a variety of workout options to suit your preferences. Whether you prefer cardio, strength training, or yoga, we have the facilities to help you stay fit during your stay."
+        },
+
+        {
+            "id": 5,
+            "name": "Laundry Service",
+            "desc": "Our convenient laundry service ensures that your clothes are clean and fresh throughout your stay. Simply drop off your laundry at the front desk, and our professional team will take care of the rest. We offer quick turnaround times and high-quality cleaning to keep you looking your best."
+        },
+         
+        {
+            "id": 6,
+            "name": "Airport Shuttle",
+            "desc": "We provide a reliable airport shuttle service to make your arrival and departure hassle-free. Our comfortable and spacious vehicles will transport you to and from the airport with ease. Let us take care of your transportation needs so you can focus on enjoying your stay with us."
+        }
+
+    ],  
+    "Staffs":[
+        {
+            "id":1,
+            "name":"Karan patal",
+            "position":"Manager"
+       
+    },
+    {
+        "id":2,
+        "name":"Aryan goswami",
+        "position":"Receptionist"
+
+
+    },
+     {
+        "id":3,
+        "name":"Bhavin Panchal",
+        "position":"Housekeeping"
+     },
+     {
+        "id":4,
+        "name":"Aman solanki",
+        "position":"Chef"
+     }
+    ]
+
+}
