@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../Commen/Header'
 import Footer from '../Commen/Footer'
+import axios from 'axios'
 
 function Team() {
+  const [Team, setTeam] = useState([])
+
+    useEffect(() => {
+        fetchdata()
+    }, [])
+
+    const fetchdata = async () => {
+        try {
+            const res = await axios.get("http://localhost:3000/team")
+            console.log(res.data)
+            setTeam(res.data)
+        } catch (error) {
+            console.log("Api data not Found", error)
+        }
+    }
   return (
     <div>
   <div className="container-xxl bg-white p-0">

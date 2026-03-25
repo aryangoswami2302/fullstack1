@@ -46,13 +46,27 @@ function Aheader() {
                                     <NavLink to="/" className="nav-item nav-link">Home</NavLink>
                                     <NavLink to="/about" className="nav-item nav-link">About</NavLink>
                                     <NavLink to="/services" className="nav-item nav-link">Services</NavLink>
-                                    <NavLink to="/roomManage" className="nav-item nav-link">RoomManage</NavLink>
                                     <div className="nav-item dropdown">
                                         <NavLink to="/page" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</NavLink>
                                         <div className="dropdown-menu rounded-0 m-0">
                                             <NavLink to="/booking" className="dropdown-item">Booking</NavLink>
                                             <NavLink to="/team" className="dropdown-item">Our Team</NavLink>
                                             <NavLink to="/testimonial" className="dropdown-item">Testimonial</NavLink>
+                                        </div>
+                                    </div>
+                                     <div className="nav-item dropdown">
+                                        <NavLink to="/rooms" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Rooms</NavLink>
+                                        <div className="dropdown-menu rounded-0 m-0">
+                                            <NavLink to="/roomManage" className="dropdown-item">RoomManage</NavLink>
+                                            <NavLink to="/roomadd" className="dropdown-item">RoomAdd</NavLink>
+                                           
+                                        </div>
+                                    </div>
+                                      <div className="nav-item dropdown">
+                                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Team</a>
+                                        <div className="dropdown-menu rounded-0 m-0">
+                                            <NavLink to="/teamManage" className="dropdown-item">Team Manage</NavLink>
+                                            <NavLink to="/teamadd" className="dropdown-item">Team Add</NavLink>
                                         </div>
                                     </div>
                                     <NavLink to="/contect" className="nav-item nav-link">Contact</NavLink>

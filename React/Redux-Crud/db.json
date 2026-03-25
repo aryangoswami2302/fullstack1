@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Karan patel",
+      "email": "karan@gamil.com",
+      "password": "1234",
+      "gender": "male"
+    },
+    {
+      "id": "2",
+      "name": "Aryan Goswami",
+      "email": "arayn@gamil.com",
+      "password": "123456",
+      "gender": "male"
+    },
+    {
+      "id": "3",
+      "name": "mahi patel",
+      "email": "mahi@gamil.com",
+      "password": "1234567",
+      "gender": "female"
+    },
+    {
+      "id": "1774170550922",
+      "name": "Aman solanki",
+      "email": "Aman@gmail.com",
+      "gender": "male",
+      "password": "456789"
+    },
+    {
+      "id": "1774170594901",
+      "name": "Bhavin Panchal",
+      "email": "Bhavin@gmail.com",
+      "gender": "male",
+      "password": "1234"
+    }
+  ],
+  "admin": [
+    {
+      "id": "1",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "name": "subadmin",
+      "email": "subadmin@gmail.com",
+      "password": "123456"
+    }
+  ]
+}
