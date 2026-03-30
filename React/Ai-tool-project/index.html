@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProResume | Extraordinary Resume Builder</title>
+    <!-- Modern Typography: Outfit Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Animated Shapes -->
+    <div class="blob shape-1"></div>
+    <div class="blob shape-2"></div>
+    <div class="blob shape-3"></div>
+
+    <div class="app-container">
+        <!-- Main Form Section (Left Side) -->
+        <div class="editor-section hide-on-print">
+            <header class="app-header">
+                <h1><i class="fa-solid fa-file-signature"></i> Pro<span>Resume</span></h1>
+                <p>Craft your perfect resume in seconds.</p>
+            </header>
+
+            <form id="resumeForm" class="glass-panel">
+                <!-- Personal Info -->
+                <div class="form-group">
+                    <h3><i class="fa-solid fa-user"></i> Personal Information</h3>
+                    <div class="input-grid">
+                        <div class="input-wrapper">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="e.g. John Doe">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="jobTitle">Job Title</label>
+                            <input type="text" id="jobTitle" placeholder="e.g. Senior Frontend Developer">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="john@example.com">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" placeholder="+1 234 567 890">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" placeholder="New York, USA">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="portfolio">Website / LinkedIn</label>
+                            <input type="text" id="portfolio" placeholder="linkedin.com/in/johndoe">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Summary -->
+                <div class="form-group">
+                    <h3><i class="fa-solid fa-align-left"></i> Summary</h3>
+                    <div class="input-wrapper">
+                        <textarea id="summary" rows="4"
+                            placeholder="Briefly describe your professional background and goals..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="form-group">
+                    <h3><i class="fa-solid fa-briefcase"></i> Experience (Latest)</h3>
+                    <div class="input-grid">
+                        <div class="input-wrapper">
+                            <label for="expJobTitle">Job Title</label>
+                            <input type="text" id="expJobTitle" placeholder="Software Engineer">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="expCompany">Company</label>
+                            <input type="text" id="expCompany" placeholder="Tech Corp Inc.">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="expDates">Dates</label>
+                            <input type="text" id="expDates" placeholder="2020 - Present">
+                        </div>
+                    </div>
+                    <div class="input-wrapper mt-2">
+                        <label for="expDesc">Description</label>
+                        <textarea id="expDesc" rows="3"
+                            placeholder="- Developed key features... \n- Led a team of..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="form-group">
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                    <div class="input-grid">
+                        <div class="input-wrapper">
+                            <label for="eduDegree">Degree</label>
+                            <input type="text" id="eduDegree" placeholder="B.S. Computer Science">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="eduSchool">School</label>
+                            <input type="text" id="eduSchool" placeholder="University of Technology">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="eduYear">Graduation Year</label>
+                            <input type="text" id="eduYear" placeholder="2019">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="form-group">
+                    <h3><i class="fa-solid fa-code"></i> Skills (Comma separated)</h3>
+                    <div class="input-wrapper">
+                        <input type="text" id="skills" placeholder="JavaScript, React, CSS, Node.js, Git">
+                    </div>
+                </div>
+
+            </form>
+
+            <div class="actions">
+                <button id="downloadBtn" class="btn-primary"><i class="fa-solid fa-download"></i> Download PDF</button>
+            </div>
+        </div>
+
+        <!-- Preview Section (Right Side) -->
+        <div class="preview-section">
+            <div class="resume-paper" id="resumePreview">
+                <!-- Header -->
+                <div class="cv-header">
+                    <h1 id="cv-name">John Doe</h1>
+                    <h3 id="cv-title">Senior Frontend Developer</h3>
+                    <div class="cv-contact">
+                        <span id="cv-email"><i class="fa-solid fa-envelope"></i> john@example.com</span>
+                        <span id="cv-phone"><i class="fa-solid fa-phone"></i> +1 234 567 890</span>
+                        <span id="cv-location"><i class="fa-solid fa-location-dot"></i> New York, USA</span>
+                        <span id="cv-portfolio"><i class="fa-solid fa-link"></i> linkedin.com/in/johndoe</span>
+                    </div>
+                </div>
+
+                <!-- Content Body -->
+                <div class="cv-body">
+                    <!-- Summary -->
+                    <div class="cv-section">
+                        <h2 class="cv-section-title">Profile</h2>
+                        <p id="cv-summary">Passionate software engineer with 5+ years of experience in building scalable
+                            web applications. Dedicated to creating extraordinary user experiences.</p>
+                    </div>
+
+                    <div class="cv-two-column">
+                        <div class="cv-col cv-main">
+                            <!-- Experience -->
+                            <div class="cv-section">
+                                <h2 class="cv-section-title">Experience</h2>
+                                <div class="cv-item">
+                                    <h4 class="cv-item-title" id="cv-exp-title">Software Engineer</h4>
+                                    <div class="cv-item-meta">
+                                        <span id="cv-exp-company" class="company">Tech Corp Inc.</span> |
+                                        <span id="cv-exp-date" class="date">2020 - Present</span>
+                                    </div>
+                                    <div class="cv-item-desc" id="cv-exp-desc">
+                                        Developed key features handling millions of requests.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Education -->
+                            <div class="cv-section">
+                                <h2 class="cv-section-title">Education</h2>
+                                <div class="cv-item">
+                                    <h4 class="cv-item-title" id="cv-edu-degree">B.S. Computer Science</h4>
+                                    <div class="cv-item-meta">
+                                        <span id="cv-edu-school" class="school">University of Technology</span> |
+                                        <span id="cv-edu-year" class="date">2019</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cv-col cv-sidebar">
+                            <!-- Skills -->
+                            <div class="cv-section">
+                                <h2 class="cv-section-title">Skills</h2>
+                                <div class="cv-skills" id="cv-skills-list">
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">CSS</span>
+                                    <span class="skill-tag">Node.js</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
