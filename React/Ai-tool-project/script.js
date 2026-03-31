@@ -81,6 +81,53 @@ function initializeLivePreview() {
     }
 }
 
+// Handle Profile Picture Upload
+// Handle Profile Picture Upload
+function setupPhotoUpload() {
+    const photoInput = document.getElementById('profilePicInput');
+    const photoDisplay = document.getElementById('photoDisplay');
+    const photoImg = document.getElementById('cv-photo-img');
+    const removePhotoBtn = document.getElementById('removePhotoBtn');
+
+    if (photoInput && photoImg) {
+        photoInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    photoImg.src = e.target.result;
+                    photoDisplay.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                photoDisplay.style.display = 'none';
+            }
+        });
+    }
+
+    if (removePhotoBtn && photoDisplay && photoImg) {
+        removePhotoBtn.addEventListener('click', () => {
+            photoImg.src = '#'; // Clear the image source
+            photoDisplay.style.display = 'none'; // Hide the container
+            photoInput.value = ''; // Clear the file input
+        });
+    }
+}
+
+// Template Selection Logic
+function initializeTemplateSwitcher() {
+    const templateSelect = document.getElementById('templateSelect');
+    const resumePreview = document.getElementById('resumePreview');
+
+    if (templateSelect && resumePreview) {
+        templateSelect.addEventListener('change', (e) => {
+            const selectedTemplate = e.target.value;
+            // Keep the base class and add the selected template class
+            resumePreview.className = `resume-paper ${selectedTemplate}`;
+        });
+    }
+}
+
 // Download PDF functionality
 function setupDownloadButton() {
     const downloadBtn = document.getElementById('downloadBtn');
@@ -97,5 +144,7 @@ function setupDownloadButton() {
 // Wait for DOM to load fully before initializing
 document.addEventListener('DOMContentLoaded', () => {
     initializeLivePreview();
+    setupPhotoUpload();
+    initializeTemplateSwitcher();
     setupDownloadButton();
 });

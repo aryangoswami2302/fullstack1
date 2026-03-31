@@ -54,6 +54,7 @@ function App() {
           <Route path='/roomadd' element={<RoomAdd />} />
           <Route path='/teamManage' element={<TeamManage />}/>
           <Route path='/teamadd' element={<TeamAdd />}/>
+          <Route path=''/>
 
         </Routes>
 

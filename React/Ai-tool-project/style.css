@@ -269,12 +269,14 @@ textarea {
     border-radius: 4px; /* Slight rounding for screen */
     transform-origin: top center;
     /* Scale down slightly if screen is small to fit */
+    /* This scale will be overridden by print styles */
     transform: scale(0.85); 
     display: flex;
     flex-direction: column;
 }
 
 .cv-header {
+    display: flex; /* Default for header content */
     border-bottom: 2px solid var(--cv-accent);
     padding-bottom: 1.5rem;
     margin-bottom: 1.5rem;
@@ -285,6 +287,13 @@ textarea {
     font-weight: 700;
     color: var(--cv-primary);
     line-height: 1.1;
+    margin-bottom: 0.2rem;
+}
+
+.cv-header-text {
+    flex: 1; /* Take remaining space if header is flex */
+    display: flex;
+    flex-direction: column;
     margin-bottom: 0.2rem;
 }
 
@@ -305,11 +314,27 @@ textarea {
     color: var(--cv-muted);
 }
 
+.cv-photo-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    color: var(--cv-muted);
+}
+
 .cv-contact i {
     color: var(--cv-accent);
     margin-right: 0.3rem;
 }
 
+/* Photo Styling - Default */
+.cv-photo-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid var(--cv-accent);
+    margin-right: 1.5rem; /* Space between photo and text */
+}
 .cv-body {
     flex: 1;
 }
@@ -385,7 +410,212 @@ textarea {
     line-height: 1.5;
 }
 
-/* Tags for skills */
+/* == MODERN TEMPLATE SPECIFIC (Sidebar Look) == */
+.resume-paper.template-modern {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    padding: 0;
+}
+
+/* Modern Template Layout */
+.template-modern {
+    grid-template-columns: 250px 1fr; /* Left sidebar, right main content */
+    grid-template-rows: auto 1fr; /* Header/skills row, then main content row */
+    padding: 0; /* Allow sidebar to go edge-to-edge */
+}
+
+.template-modern .cv-header {
+    grid-column: 1; /* Place header in first column */
+    grid-row: 1; /* First row */
+    background-color: var(--cv-primary); /* Dark background for sidebar */
+    color: white;
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-bottom: none; /* Remove default border */
+    margin-bottom: 0;
+}
+
+.template-modern .cv-photo-container {
+    border-color: white; /* White border for photo */
+    margin-right: 0; /* No margin-right in column layout */
+    margin-bottom: 1rem; /* Space below photo */
+}
+
+.template-modern .cv-header h1,
+.template-modern .cv-header h3 {
+    color: white; /* White text for header */
+}
+
+.template-modern .cv-contact {
+    flex-direction: column; /* Stack contact items */
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.template-modern .cv-contact i {
+    color: var(--cv-accent); /* Keep accent color for icons */
+}
+
+.template-modern .cv-skills-section {
+    grid-column: 1; /* Place skills in first column */
+    grid-row: 2; /* Second row, below header */
+    background-color: var(--cv-primary); /* Same background as header */
+    padding: 0 1.5rem 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separator */
+}
+
+.template-modern .cv-skills-section .cv-section-title {
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.template-modern .cv-skills-section .cv-section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--cv-accent);
+}
+
+.template-modern .cv-skills .skill-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.template-modern .cv-body {
+    grid-column: 2; /* Place body in second column */
+    grid-row: 1 / span 2; /* Span both rows */
+    padding: 2.5rem; /* Add back padding */
+    display: flex;
+    flex-direction: column; /* Stack sections */
+}
+
+/* Classic Template Layout */
+.template-classic {
+    font-family: 'Georgia', serif;
+    background: #fff;
+    color: #333;
+}
+
+.template-classic .cv-header {
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 1rem;
+    display: block; /* Override modern flex */
+}
+
+.template-classic .cv-photo-container {
+    margin: 0 auto 1rem; /* Center photo */
+    border-color: #333;
+}
+
+.template-classic .cv-header h1,
+.template-classic .cv-header h3 {
+    color: #333;
+}
+
+.template-classic .cv-contact {
+    justify-content: center;
+    color: #555;
+}
+
+.template-classic .cv-contact i {
+    color: #333;
+}
+
+.template-classic .cv-section-title {
+    border-bottom: 1px solid #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.template-classic .cv-section-title::after {
+    display: none; /* Remove underline for classic */
+}
+
+.template-classic .cv-skills-section {
+    margin-top: 1.5rem; /* Place skills after education */
+}
+
+.template-classic .cv-skills .skill-tag {
+    background: #f0f0f0;
+    color: #555;
+    border-color: #ddd;
+}
+
+/* Minimalist Template Layout */
+.template-minimal {
+    background: #fafafa;
+    box-shadow: none;
+    border: 1px solid #eee;
+    padding: 2rem;
+}
+
+.template-minimal .cv-header {
+    border-bottom: none;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.template-minimal .cv-photo-container {
+    border: none;
+    border-radius: 0;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.5rem;
+}
+
+.template-minimal .cv-header h1 {
+    font-weight: 300;
+    color: #555;
+    font-size: 2.5rem;
+}
+
+.template-minimal .cv-header h3 {
+    color: #777;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.template-minimal .cv-contact {
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.template-minimal .cv-contact i {
+    display: none; /* Hide icons in minimal */
+}
+
+.template-minimal .cv-section-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.template-minimal .cv-section-title::after {
+    display: none;
+}
+
+.template-minimal .cv-skills-section {
+    margin-top: 1.5rem;
+}
+
+.template-minimal .cv-skills .skill-tag {
+    background: transparent;
+    border: 1px solid #ddd;
+    color: #666;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+}
+
+/* Tags for skills - Default */
 .cv-skills {
     display: flex;
     flex-wrap: wrap;
@@ -436,15 +666,16 @@ textarea {
     }
 }
 
-/* == RESPONSIVENESS == */
-@media (max-width: 1024px) {
-    .app-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .editor-section {
-        width: 100%;
-        max-width: 100%;
-    }
+/* Responsive & Template Styles (Existing, moved for clarity) */
+/* These media queries are already in index.html <style> block,
+   but keeping them here for completeness if they were to be moved. */
+/* @media (max-width: 992px) {
+    .app-container { flex-direction: column; padding: 10px; }
+    .editor-section, .preview-section { width: 100%; max-width: 100%; }
+    .preview-section { margin-top: 2rem; }
 }
+
+@media (max-width: 600px) {
+    .input-grid { grid-template-columns: 1fr; }
+    .cv-header h1 { font-size: 1.5rem; }
+} */
