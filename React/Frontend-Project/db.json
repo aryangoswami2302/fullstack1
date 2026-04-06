@@ -1,0 +1,84 @@
+{
+  "plans": [
+    {
+      "id": "1",
+      "name": "Basic",
+      "price": "$29",
+      "tag": "",
+      "features": [
+        "Access to gym floor",
+        "Standard equipment",
+        "Locker room access",
+        "Free Wi-Fi"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Silver",
+      "price": "$49",
+      "tag": "Most Popular",
+      "features": [
+        "All Basic features",
+        "Group fitness classes",
+        "Cardio machines access",
+        "1 Personal training session/mo"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Gold",
+      "price": "$89",
+      "tag": "Best Value",
+      "features": [
+        "All Silver features",
+        "Unlimited classes",
+        "Spa & sauna access",
+        "Weekly personal training",
+        "Premium guest pass"
+      ]
+    }
+  ],
+  "members": [
+    {
+      "name": "John Doe",
+      "age": 28,
+      "plan": "Gold",
+      "joinDate": "2023-01-15",
+      "status": "Active",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "age": 34,
+      "plan": "Silver",
+      "joinDate": "2023-05-20",
+      "status": "Inactive"
+    },
+    {
+      "id": "3",
+      "name": "Michael Chen",
+      "age": 25,
+      "plan": "Basic",
+      "joinDate": "2024-02-10",
+      "status": "Active"
+    },
+    {
+      "id": "4",
+      "name": "Sarah Lee",
+      "age": 29,
+      "plan": "Gold",
+      "joinDate": "2024-03-01",
+      "status": "Active"
+    },
+    {
+      "id": "5",
+      "name": "David Wilson",
+      "age": 42,
+      "plan": "Basic",
+      "joinDate": "2023-11-05",
+      "status": "Inactive"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
