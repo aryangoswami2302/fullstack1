@@ -1,0 +1,65 @@
+{
+  "products": [
+    {
+      "id": "2",
+      "ProductName": "Smart Watch Series X",
+      "Price": 250,
+      "OfferPrice": 200,
+      "Photo": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80",
+      "Qty": 5,
+      "Description": "Next generation smart watch with health tracking.",
+      "added_date": "2023-11-21"
+    },
+    {
+      "ProductName": "Golden Watch",
+      "Price": "699",
+      "OfferPrice": "499",
+      "Photo": "https://images.pexels.com/photos/36660369/pexels-photo-36660369.jpeg",
+      "Qty": "9",
+      "Description": "",
+      "added_date": "2026-04-06",
+      "id": "dHGUaZlYwKo"
+    },
+    {
+      "ProductName": "Primium Watch",
+      "Price": "799",
+      "OfferPrice": "699",
+      "Photo": "https://images.pexels.com/photos/33690507/pexels-photo-33690507.jpeg",
+      "Qty": "10",
+      "Description": "",
+      "added_date": "2026-04-06",
+      "id": "xHg6NJEB3-Q"
+    },
+    {
+      "ProductName": "house of common",
+      "Price": "999",
+      "OfferPrice": "599",
+      "Photo": "https://rukminim2.flixcart.com/image/1528/1528/xif0q/watch/y/l/1/1-skeleton-series-premium-watch-house-of-common-men-original-imahk6pyffkr3m7g.jpeg?q=90",
+      "Qty": "6",
+      "Description": "house of common ClaasyMen Premium Skeleton Series Analog Watch for Men Analog Watch  - For Men Skeleton Series Premium Watch",
+      "added_date": "2024-04-06",
+      "id": "nNETz9oMe7c"
+    },
+    {
+      "ProductName": "Imperial Shine",
+      "Price": "599",
+      "OfferPrice": "499",
+      "Photo": "https://rukminim2.flixcart.com/image/1528/1528/xif0q/watch/w/3/q/1-sasuke-sharingan-naruto-spinning-imperial-shine-men-original-imahjya8s9zpauze.jpeg?q=90",
+      "Qty": "5",
+      "Description": "Imperial Shine Analog Watch  - For Men Sasuke Sharingan Naruto Spinning\n",
+      "added_date": "2025-05-05",
+      "id": "M7m5ZugixMQ"
+    },
+    {
+      "ProductName": "TIMEX",
+      "Price": "1099",
+      "OfferPrice": "999",
+      "Photo": "https://rukminim2.flixcart.com/image/1528/1528/xif0q/watch/p/h/f/-original-imahfwzxhcs7zfpk.jpeg?q=90",
+      "Qty": "5",
+      "Description": "TIMEX Multifunction Black Dial Analog Watch",
+      "added_date": "2026-04-05",
+      "id": "46LVTvbKN64"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
