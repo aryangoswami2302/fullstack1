@@ -22,13 +22,6 @@
       "gender": "female"
     },
     {
-      "id": "1774170550922",
-      "name": "Aman solanki",
-      "email": "Aman@gmail.com",
-      "gender": "male",
-      "password": "456789"
-    },
-    {
       "id": "1774170594901",
       "name": "Bhavin Panchal",
       "email": "Bhavin@gmail.com",
@@ -49,5 +42,6 @@
       "email": "subadmin@gmail.com",
       "password": "123456"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
