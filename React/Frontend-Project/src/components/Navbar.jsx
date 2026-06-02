@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../store/authSlice';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase/config';
 import { toggleTheme } from '../store/themeSlice';
 import { FaSignOutAlt, FaMoon, FaSun, FaUserCircle, FaBars, FaTimes } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
@@ -12,8 +13,12 @@ const Navbar = () => {
   const { mode } = useSelector((state) => state.theme);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleLogout = () => {
-    dispatch(logout());
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Logout error", error);
+    }
   };
 
   const navLinks = [
@@ -21,6 +26,7 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Contact', path: '/contact' },
+    { name: 'Leaderboard', path: '/leaderboard' },
   ];
 
   const dashboardLink = user?.role === 'admin' ? '/admin-dashboard' : '/member-dashboard';
@@ -38,7 +44,7 @@ const Navbar = () => {
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex flex-1 justify-center space-x-8 items-center">
-            {navLinks.map((link) => (
+            {user && navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
@@ -63,17 +69,29 @@ const Navbar = () => {
                 Dashboard
               </Link>
             )}
-            {user?.role === 'admin' && (
-              <Link
-                to="/admin-plans"
-                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                  location.pathname === '/admin-plans'
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-gray-600 dark:text-gray-300'
-                }`}
-              >
-                Manage Plans
-              </Link>
+            {user?.role === 'member' && (
+              <>
+                <Link
+                  to="/member-billing"
+                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                    location.pathname === '/member-billing'
+                      ? 'text-blue-600 dark:text-blue-400'
+                      : 'text-gray-600 dark:text-gray-300'
+                  }`}
+                >
+                  Billing
+                </Link>
+                <Link
+                  to="/member-progress"
+                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                    location.pathname === '/member-progress'
+                      ? 'text-blue-600 dark:text-blue-400'
+                      : 'text-gray-600 dark:text-gray-300'
+                  }`}
+                >
+                  Progress
+                </Link>
+              </>
             )}
           </div>
           
@@ -108,12 +126,20 @@ const Navbar = () => {
                 </button>
               </>
             ) : (
-              <Link
-                to="/login"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none"
-              >
-                Login
-              </Link>
+              <div className="flex items-center space-x-3">
+                <Link
+                  to="/register"
+                  className="bg-white hover:bg-slate-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 px-4 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none"
+                >
+                  Register
+                </Link>
+                <Link
+                  to="/login"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none"
+                >
+                  Login
+                </Link>
+              </div>
             )}
           </div>
 
@@ -138,7 +164,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-admin-darkCard px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-inner">
-          {navLinks.map((link) => (
+          {user && navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
@@ -167,17 +193,67 @@ const Navbar = () => {
                 Dashboard
               </Link>
               {user.role === 'admin' && (
-                <Link
-                  to="/admin-plans"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    location.pathname === '/admin-plans'
-                      ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
-                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  Manage Plans
-                </Link>
+                <>
+                  <Link
+                    to="/admin-attendance"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block px-3 py-2 rounded-md text-base font-medium ${
+                      location.pathname === '/admin-attendance'
+                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
+                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                    }`}
+                  >
+                    Attendance
+                  </Link>
+                  <Link
+                    to="/admin-plans"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block px-3 py-2 rounded-md text-base font-medium ${
+                      location.pathname === '/admin-plans'
+                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
+                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                    }`}
+                  >
+                    Manage Plans
+                  </Link>
+                  <Link
+                    to="/admin-payments"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block px-3 py-2 rounded-md text-base font-medium ${
+                      location.pathname === '/admin-payments'
+                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
+                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                    }`}
+                  >
+                    Payments
+                  </Link>
+                </>
+              )}
+              {user.role === 'member' && (
+                <>
+                  <Link
+                    to="/member-billing"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block px-3 py-2 rounded-md text-base font-medium ${
+                      location.pathname === '/member-billing'
+                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
+                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                    }`}
+                  >
+                    Billing
+                  </Link>
+                  <Link
+                    to="/member-progress"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block px-3 py-2 rounded-md text-base font-medium ${
+                      location.pathname === '/member-progress'
+                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
+                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                    }`}
+                  >
+                    Progress
+                  </Link>
+                </>
               )}
               <button
                 onClick={() => { handleLogout(); setMobileMenuOpen(false); }}
@@ -187,13 +263,22 @@ const Navbar = () => {
               </button>
             </>
           ) : (
-            <Link
-              to="/login"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block mt-4 text-center w-full px-5 py-3 rounded-md text-base font-bold bg-blue-600 text-white hover:bg-blue-700"
-            >
-              Login
-            </Link>
+            <>
+              <Link
+                to="/register"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block mt-2 text-center w-full px-5 py-3 rounded-md text-base font-semibold bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+              >
+                Register
+              </Link>
+              <Link
+                to="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block mt-2 text-center w-full px-5 py-3 rounded-md text-base font-bold bg-blue-600 text-white hover:bg-blue-700"
+              >
+                Login
+              </Link>
+            </>
           )}
         </div>
       )}

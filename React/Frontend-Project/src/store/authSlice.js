@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  user: JSON.parse(localStorage.getItem('user')) || null, // { email, role: 'admin' | 'member' }
+  user: null, 
+  loading: true, // True by default while Firebase checks auth state on load
   error: null,
 };
 
@@ -9,27 +10,17 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    login: (state, action) => {
-      const { email, password } = action.payload;
-      if (email === 'admin@gmail.com' && password === '123456') {
-        const adminUser = { email, role: 'admin' };
-        state.user = adminUser;
-        state.error = null;
-        localStorage.setItem('user', JSON.stringify(adminUser));
-      } else if (email && password) {
-        // Any other non-empty credentials considered as a member
-        const memberUser = { email, role: 'member' };
-        state.user = memberUser;
-        state.error = null;
-        localStorage.setItem('user', JSON.stringify(memberUser));
-      } else {
-        state.error = 'Invalid credentials. Please provide valid email and password.';
-      }
-    },
-    logout: (state) => {
-      state.user = null;
+    setUser: (state, action) => {
+      state.user = action.payload;
+      state.loading = false;
       state.error = null;
-      localStorage.removeItem('user');
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+      state.loading = false;
     },
     clearError: (state) => {
       state.error = null;
@@ -37,5 +28,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { login, logout, clearError } = authSlice.actions;
+export const { setUser, setLoading, setError, clearError } = authSlice.actions;
 export default authSlice.reducer;

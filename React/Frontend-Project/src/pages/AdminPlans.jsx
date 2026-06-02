@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { api } from '../services/api';
+import { fetchPlans as fetchPlansFromFirebase, createPlan as createPlanInFirebase, modifyPlan as updatePlanInFirebase, removePlan as deletePlanFromFirebase } from '../services/firebaseService';
 import { FaTrash, FaEdit, FaPlus, FaSpinner, FaSave, FaTimes } from 'react-icons/fa';
 import PageWrapper from '../components/PageWrapper';
 import toast from 'react-hot-toast';
@@ -18,14 +18,14 @@ const AdminPlans = () => {
     features: ''
   });
 
-  const fetchPlans = async () => {
+  const loadPlans = async () => {
     try {
       setLoading(true);
-      const data = await api.getPlans();
+      const data = await fetchPlansFromFirebase();
       setPlans(data);
       setError(null);
     } catch (err) {
-      setError('Failed to load plans. Is the JSON server running?');
+      setError('Failed to load plans from Firebase.');
       toast.error('Failed to load plans');
     } finally {
       setLoading(false);
@@ -33,7 +33,7 @@ const AdminPlans = () => {
   };
 
   useEffect(() => {
-    fetchPlans();
+    loadPlans();
   }, []);
 
   const handleInputChange = (e) => {
@@ -54,9 +54,9 @@ const AdminPlans = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this plan? This action cannot be undone.')) {
       try {
-        await api.deletePlan(id);
+        await deletePlanFromFirebase(id);
         toast.success("Plan deleted successfully");
-        fetchPlans();
+        loadPlans();
       } catch (err) {
         toast.error('Failed to delete the plan');
       }
@@ -79,15 +79,15 @@ const AdminPlans = () => {
 
     try {
       if (editingId) {
-        await api.updatePlan(editingId, payload);
+        await updatePlanInFirebase(editingId, payload);
         toast.success("Plan updated successfully");
         setEditingId(null);
       } else {
-        await api.createPlan(payload);
+        await createPlanInFirebase(payload);
         toast.success("New plan created successfully");
       }
       setFormData({ name: '', price: '', tag: '', features: '' });
-      fetchPlans();
+      loadPlans();
     } catch (err) {
       toast.error('Failed to save the plan');
     } finally {

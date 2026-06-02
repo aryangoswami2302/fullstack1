@@ -1,21 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
 import PageWrapper from '../components/PageWrapper';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const location = useLocation();
+  const selectedPlan = location.state?.selectedPlan;
+  
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    email: '', 
+    message: selectedPlan ? `Hi, I'm interested in the ${selectedPlan.name} plan priced at ${selectedPlan.price}. Please provide more details and help me get started.` : '' 
+  });
   const [status, setStatus] = useState('');
+  const [whatsappUrl, setWhatsappUrl] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus('Sending...');
     
-    // Simulate API call
-    setTimeout(() => {
-      setStatus('Success! Your message has been sent. We will get back to you shortly.');
-      setFormData({ name: '', email: '', message: '' });
-    }, 1500);
+    // Create WhatsApp message
+    const whatsappMessage = `*New Contact Form Submission*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Message:* ${formData.message}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=919687577089&text=${encodeURIComponent(whatsappMessage)}`;
+    
+    // Open WhatsApp
+    const newWindow = window.open(whatsappUrl, '_blank');
+    
+    if (!newWindow) {
+      setWhatsappUrl(whatsappUrl);
+      setStatus('Popup blocked! Please click the link below to send your WhatsApp message.');
+      return;
+    }
+    
+    setWhatsappUrl(whatsappUrl);
+    setStatus('Success! Your message has been sent via WhatsApp. We will get back to you shortly.');
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
@@ -53,7 +73,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-blue-200 uppercase tracking-wider font-bold mb-1">Call Us Directly</p>
-                  <p className="text-xl font-semibold">+1 (555) 123-4567</p>
+                  <p className="text-xl font-semibold">+91 9687577089</p>
                 </div>
               </div>
 
@@ -63,7 +83,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-blue-200 uppercase tracking-wider font-bold mb-1">Email Our Team</p>
-                  <p className="text-xl font-semibold">support@gympro.com</p>
+                  <p className="text-xl font-semibold">aryan23goswami@gmail.com</p>
                 </div>
               </div>
 
@@ -73,7 +93,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-blue-200 uppercase tracking-wider font-bold mb-1">Visit Facility</p>
-                  <p className="text-xl font-semibold">123 Fitness Avenue, NY 10001</p>
+                  <p className="text-xl font-semibold">123 Fitness Avenue,Ahmedabad</p>
                 </div>
               </div>
             </div>
@@ -96,7 +116,19 @@ const Contact = () => {
                 ? 'bg-green-50 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-400 dark:border-green-800/50' 
                 : 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-800/50'
             }`}>
-              {status}
+              <div>{status}</div>
+              {whatsappUrl && status.includes('Success') && (
+                <div className="mt-3">
+                  <a 
+                    href={whatsappUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                  >
+                    Open WhatsApp to Send Message
+                  </a>
+                </div>
+              )}
             </div>
           )}
 

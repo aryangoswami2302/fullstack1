@@ -70,6 +70,18 @@
         "count": 0
       },
       "id": "LTsZnI64S1Y"
+    },
+    {
+      "title": "Key Highlights Key Highlights Key Highlights Key Highlights +4 Selected Color: Lemon   Select Size Size Chart   S    M    L    XL    2XL    3XL    Visit brand store BEING HUMAN Men Slim Fit Solid Casual Shirt",
+      "price": "799",
+      "category": "",
+      "image": "https://rukminim1.flixcart.com/image/1528/1528/xif0q/shirt/r/2/h/m-bhmlslv24579-being-human-original-imah4jvuadntg3xe.jpeg?q=90",
+      "rating": {
+        "rate": 0,
+        "count": 0
+      },
+      "id": "vcBcwtiT6fk"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -1,20 +1,30 @@
 import { FaCheck, FaSpinner } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { api } from "../services/api";
+import { fetchPlans as fetchPlansFromFirebase } from "../services/firebaseService";
 import PageWrapper from "../components/PageWrapper";
 import { motion } from "framer-motion";
+import { useSelector, useDispatch } from 'react-redux';
+import { doc, updateDoc } from 'firebase/firestore';
+import { db } from '../firebase/config';
+import { setUser } from '../store/authSlice';
+import toast from 'react-hot-toast';
 
 const Services = () => {
   const [yearly, setYearly] = useState(false);
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [updatingPlanId, setUpdatingPlanId] = useState(null);
+
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPlans = async () => {
       try {
-        const data = await api.getPlans();
+        const data = await fetchPlansFromFirebase();
         setPlans(data);
       } catch (err) {
         setError('Failed to fetch plans. Please try again later.');
@@ -26,18 +36,57 @@ const Services = () => {
   }, []);
 
   const getDisplayPrice = (priceString) => {
-    if (!yearly) return priceString;
-    const numMatch = priceString.match(/\d+/);
-    if (numMatch) {
-      const num = parseInt(numMatch[0]);
-      return priceString.replace(numMatch[0], num * 10);
+    let price = priceString;
+    if (yearly) {
+      const numMatch = priceString.match(/\d+/);
+      if (numMatch) {
+        const num = parseInt(numMatch[0]);
+        price = priceString.replace(numMatch[0], num * 10);
+      }
     }
-    return priceString;
+    // Add ₹ symbol if not already present
+    if (!price.includes('₹')) {
+      price = '₹' + price;
+    }
+    return price;
+  };
+
+  const handleSelectPlan = async (plan) => {
+    if (!user) {
+      toast.error('Please sign in to select a plan');
+      navigate('/login');
+      return;
+    }
+
+    if (user.plan === plan.name) {
+      toast.success('You are already on this plan!');
+      return;
+    }
+
+    setUpdatingPlanId(plan.id);
+
+    try {
+      // Update in Firestore
+      const userRef = doc(db, 'users', user.uid);
+      await updateDoc(userRef, {
+        plan: plan.name
+      });
+
+      // Update Redux state so UI reflects immediately
+      dispatch(setUser({ ...user, plan: plan.name }));
+      
+      toast.success(`Successfully upgraded to ${plan.name}!`);
+      navigate('/member-dashboard');
+    } catch (error) {
+      console.error("Error updating plan:", error);
+      toast.error('Failed to update plan. Please try again.');
+    } finally {
+      setUpdatingPlanId(null);
+    }
   };
 
   return (
     <PageWrapper className="max-w-7xl mx-auto py-12 px-4">
-
       {/* HEADER with Image */}
       <div className="relative rounded-3xl overflow-hidden mb-16 shadow-2xl h-[350px] flex flex-col items-center justify-center text-center border-b-4 border-blue-600 dark:border-gray-800">
         <div className="absolute inset-0">
@@ -87,77 +136,89 @@ const Services = () => {
         <div className="text-center py-20 text-gray-500 text-2xl font-medium">No plans available right now. Check back later!</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan, i) => (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 30 }} 
-              whileInView={{ opacity: 1, scale: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ delay: i * 0.15 }}
-              key={plan.id}
-              className={`relative flex flex-col p-10 rounded-3xl shadow-xl transition-all duration-300 hover:-translate-y-3 cursor-pointer
-              ${
-                plan.tag && plan.tag.includes("Popular")
-                  ? "bg-gradient-to-br from-blue-700 to-purple-800 text-white scale-105 shadow-2xl border-2 border-blue-400/50"
-                  : "bg-white dark:bg-admin-darkCard border border-gray-100 dark:border-gray-800"
-              }`}
-            >
-              {/* TAG */}
-              {plan.tag && (
-                <div className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider
-                  ${plan.tag.includes("Popular") ? "bg-white text-blue-800" : "bg-blue-600 text-white"}`}>
-                  {plan.tag}
-                </div>
-              )}
+          {plans.map((plan, i) => {
+            const isCurrentPlan = user?.plan === plan.name;
+            const isUpdating = updatingPlanId === plan.id;
 
-              {/* TITLE */}
-              <div className="text-center mb-10 mt-2">
-                <h2 className={`text-3xl font-bold mb-4 ${
-                  plan.tag && plan.tag.includes("Popular") ? "text-white" : "text-gray-900 dark:text-white"
-                }`}>{plan.name}</h2>
-                <div className="flex justify-center items-baseline">
-                  <span className={`text-6xl font-extrabold ${
-                    plan.tag && plan.tag.includes("Popular") ? "text-white" : "text-gray-900 dark:text-white"
-                  }`}>
-                    {getDisplayPrice(plan.price)}
-                  </span>
-                  <span className={`ml-2 text-lg font-medium ${
-                    plan.tag && plan.tag.includes("Popular") ? "text-blue-200" : "text-gray-500 dark:text-gray-400"
-                  }`}>
-                    /{yearly ? "yr" : "mo"}
-                  </span>
-                </div>
-              </div>
-
-              {/* FEATURES */}
-              <ul className="space-y-5 mb-10 flex-grow">
-                {plan.features?.map((feat, i) => (
-                  <li key={i} className={`flex items-start text-base font-medium ${
-                    plan.tag && plan.tag.includes("Popular") ? "text-blue-50" : "text-gray-600 dark:text-gray-300"
-                  }`}>
-                    <span className={`rounded-full p-1 mr-4 mt-1 flex-shrink-0 ${
-                      plan.tag && plan.tag.includes("Popular") ? "bg-white/20 text-white" : "bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400"
-                    }`}>
-                      <FaCheck className="text-xs" />
-                    </span>
-                    {feat}
-                  </li>
-                ))}
-              </ul>
-
-              {/* BUTTON */}
-              <Link
-                to="/contact"
-                className={`block text-center py-4 rounded-full font-bold text-lg transition shadow-lg
+            return (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 30 }} 
+                whileInView={{ opacity: 1, scale: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ delay: i * 0.15 }}
+                key={plan.id}
+                className={`relative flex flex-col p-10 rounded-3xl shadow-xl transition-all duration-300 hover:-translate-y-3
                 ${
                   plan.tag && plan.tag.includes("Popular")
-                    ? "bg-white text-blue-800 hover:bg-gray-100"
-                    : "bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:opacity-90 dark:from-blue-700 dark:to-blue-600"
-                }`}
+                    ? "bg-gradient-to-br from-blue-700 to-purple-800 text-white scale-105 shadow-2xl border-2 border-blue-400/50"
+                    : "bg-white dark:bg-admin-darkCard border border-gray-100 dark:border-gray-800"
+                } ${isCurrentPlan ? 'ring-4 ring-green-500' : ''}`}
               >
-                Choose Plan
-              </Link>
-            </motion.div>
-          ))}
+                {/* Current Plan Badge */}
+                {isCurrentPlan && (
+                  <div className="absolute -top-4 right-4 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-green-500 text-white shadow-md">
+                    Current Plan
+                  </div>
+                )}
+
+                {/* TAG */}
+                {plan.tag && (
+                  <div className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider
+                    ${plan.tag.includes("Popular") ? "bg-white text-blue-800" : "bg-blue-600 text-white"}`}>
+                    {plan.tag}
+                  </div>
+                )}
+
+                {/* TITLE */}
+                <div className="text-center mb-10 mt-2">
+                  <h2 className={`text-3xl font-bold mb-4 ${
+                    plan.tag && plan.tag.includes("Popular") ? "text-white" : "text-gray-900 dark:text-white"
+                  }`}>{plan.name}</h2>
+                  <div className="flex justify-center items-baseline">
+                    <span className={`text-6xl font-extrabold ${
+                      plan.tag && plan.tag.includes("Popular") ? "text-white" : "text-gray-900 dark:text-white"
+                    }`}>
+                      {getDisplayPrice(plan.price)}
+                    </span>
+                    <span className={`ml-2 text-lg font-medium ${
+                      plan.tag && plan.tag.includes("Popular") ? "text-blue-200" : "text-gray-500 dark:text-gray-400"
+                    }`}>
+                      /{yearly ? "yr" : "mo"}
+                    </span>
+                  </div>
+                </div>
+
+                {/* FEATURES */}
+                <ul className="space-y-5 mb-10 flex-grow">
+                  {plan.features?.map((feat, i) => (
+                    <li key={i} className={`flex items-start text-base font-medium ${
+                      plan.tag && plan.tag.includes("Popular") ? "text-blue-50" : "text-gray-600 dark:text-gray-300"
+                    }`}>
+                      <span className={`rounded-full p-1 mr-4 mt-1 flex-shrink-0 ${
+                        plan.tag && plan.tag.includes("Popular") ? "bg-white/20 text-white" : "bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400"
+                      }`}>
+                        <FaCheck className="text-xs" />
+                      </span>
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* BUTTON */}
+                <button
+                  onClick={() => navigate('/contact', { state: { selectedPlan: plan } })}
+                  className={`w-full text-center py-4 rounded-full font-bold text-lg transition shadow-lg flex items-center justify-center
+                  ${
+                    plan.tag && plan.tag.includes("Popular")
+                      ? "bg-white text-blue-800 hover:bg-gray-100"
+                      : "bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:opacity-90 dark:from-blue-700 dark:to-blue-600"
+                  }`}
+                >
+                  Choose Plan
+                </button>
+              </motion.div>
+            );
+          })}
         </div>
       )}
 
