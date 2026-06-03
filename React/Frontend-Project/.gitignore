@@ -36,3 +36,5 @@ out/
 # Misc
 .eslintcache
 coverage/
+
+.vercel
