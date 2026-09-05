@@ -1,0 +1,59 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+
+    // Temporary admin access for this project's Firebase admin account.
+    // Replace with Firebase custom claims before production deployment.
+    function isAdmin() {
+      return signedIn() && request.auth.token.email == "admin@gmail.com";
+    }
+
+    // Profiles are private except that an authenticated user may create their
+    // own profile. Administrative data must be managed with Firebase Admin SDK
+    // or stronger custom-claim rules before enabling admin writes in production.
+    match /users/{userId} {
+      allow create: if isOwner(userId);
+      allow read, update: if isOwner(userId);
+      allow delete: if false;
+    }
+
+    match /rooms/{roomId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /team/{memberId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if false;
+    }
+    match /bookings/{bookingId} {
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow read: if signedIn() && resource.data.userId == request.auth.uid;
+      allow update, delete: if false;
+    }
+    match /messages/{messageId} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+    match /coupons/{couponId} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+  }
+}

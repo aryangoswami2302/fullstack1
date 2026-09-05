@@ -1,65 +1,42 @@
 import React from 'react'
-import Home from './Website/Pages/Home'
-import About from './Website/Pages/About'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Services from './Website/Pages/Services'
-import Room from './Website/Pages/Room'
-import Booking from './Website/Pages/Booking'
-import Team from './Website/Pages/Team'
-import Testimonial from './Website/Pages/Testimonial'
-import Contect from './Website/Pages/Contect'
-import Notfound from './Website/Pages/Notfound'
-import Dashbord from './Admin/Apages/Dashbord'
-import RoomManage from './Admin/Apages/RoomManage'
-import RoomAdd from './Admin/Apages/RoomAdd'
+import { BrowserRouter } from 'react-router-dom'
 import { ToastContainer, Bounce } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import TeamManage from './Admin/Apages/TeamManage'
-import TeamAdd from './Admin/Apages/TeamAdd'
+
+import { AuthProvider } from './context/AuthContext'
+import { ThemeProvider } from './context/ThemeContext'
+import { LanguageProvider } from './context/LanguageContext'
+import AppRoutes from './routes/AppRoutes'
 
 function App() {
   return (
-    <BrowserRouter>
-      <div>
+    <ThemeProvider>
+      <LanguageProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans transition-colors duration-250">
+              
+              <ToastContainer
+                position="top-right"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+                transition={Bounce}
+              />
 
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-          transition={Bounce}
-        />
+              <AppRoutes />
 
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/room' element={<Room />} />
-          <Route path='/booking' element={<Booking />} />
-          <Route path='team' element={<Team />} />
-          <Route path='/Testimonial' element={<Testimonial />} />
-          <Route path='/contect' element={<Contect />} />
-          <Route path='*' element={<Notfound />} />
-
-          {/* Admin path */}
-
-          <Route path='/Dashbord' element={<Dashbord />} />
-          <Route path='/roomManage' element={<RoomManage />} />
-          <Route path='/roomadd' element={<RoomAdd />} />
-          <Route path='/teamManage' element={<TeamManage />}/>
-          <Route path='/teamadd' element={<TeamAdd />}/>
-          <Route path=''/>
-
-        </Routes>
-
-      </div>
-    </BrowserRouter>
+            </div>
+          </BrowserRouter>
+        </AuthProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   )
 }
 

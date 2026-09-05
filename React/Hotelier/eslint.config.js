@@ -5,7 +5,9 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  // `public` contains vendor browser bundles and these legacy template pages are
+  // not part of the routed application. They are not authored source code.
+  globalIgnores(['dist', 'public/**', 'src/Website/**', 'src/Admin/Apages/**']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
